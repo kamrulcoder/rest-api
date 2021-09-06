@@ -1,6 +1,15 @@
 # Rest Api Tutirial by Hm Nayeem vai 
 
+> ##  How to Setup  Environment by Rest Api
+
+- ***Express Install:*** npm i express
+- ***Nodemon Install:***  npm i -D nodemon 
+
+
+<br>
+
 > ###  First Video Code 
+> > ####  S Simple Rest  Api Setupe Example 
 
 
 #### Server.js file 
@@ -21,14 +30,14 @@ app.listen(PORT, () =>{
 })
 ```
 
-
-
 ####  Packege.json file Code 
 ```
  "start": "nodemon server.js"
 ```
 
 
+> ###  Second  Video Code 
+> > ####   How to Setup Route in Rest Api
 
 
 
