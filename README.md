@@ -172,6 +172,21 @@ module.exports = router
 > > > const mongoose = require('mongoose'); <br>
 > > > mongoose.connect('mongodb://localhost:27017/test');
 
+### Server.js File Code 
+```
+db.on('error', (err) => {
+console.log(err);
+})
+
+db.once('open',() =>{
+    console.log('Database connection Established')
+})
+```
+
+<details>
+<summary> what  is Scheema </summary>
+In mongoose একটি schema একটি নির্দিষ্ট নথির কাঠামোর প্রতিনিধিত্ব করে, সম্পূর্ণ বা নথির একটি অংশ। এটি প্রত্যাশিত বৈশিষ্ট্য এবং মান পাশাপাশি সীমাবদ্ধতা এবং সূচক প্রকাশ করার একটি উপায়। একটি মডেল ডাটাবেসের সাথে ইন্টারঅ্যাক্ট করার জন্য একটি প্রোগ্রামিং ইন্টারফেস সংজ্ঞায়িত করে (read, insert, update, etি)
+</details>
 
 
 
