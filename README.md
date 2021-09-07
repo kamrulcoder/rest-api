@@ -141,11 +141,15 @@ router.post('/', (req, res) => {
 module.exports = router
 ```
 
+<br>
 
+> ###  Fourth    Video Code 
+> > ####   Learn about  conrs 
 
-
-
-
+<details>
+<summary> what  is Cors </summary>
+ Cross-Origin Resource Sharing (CORS) হল একটি HTTP-header ভিত্তিক প্রক্রিয়া যা সার্ভারকে তার নিজের ছাড়া অন্য কোন উৎপত্তি (ডোমেইন, স্কিম বা পোর্ট) নির্দেশ করতে দেয় যেখান থেকে ব্রাউজারকে সম্পদ লোড করার অনুমতি দেওয়া উচিত। CORS এমন একটি পদ্ধতির উপরও নির্ভর করে যার মাধ্যমে ব্রাউজার  Cross-Origin Resource হোস্ট করা সার্ভারের কাছে "preflight" অনুরোধ করে, যাতে সার্ভার প্রকৃত অনুরোধের অনুমতি দেয় কিনা তা পরীক্ষা করে। সেই preflight ব্রাউজারটি হেডার পাঠায় যা HTTP পদ্ধতি নির্দেশ করে এবং শিরোনামগুলি যা প্রকৃত অনুরোধে ব্যবহৃত হবে।
+</details>
 
 
 
