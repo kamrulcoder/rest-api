@@ -169,7 +169,7 @@ module.exports = router
 > ####  Mongoose Intall 
 >   npm install mongoose --save
 >  >// getting-started.js
-> > >const mongoose = require('mongoose');
+> > > const mongoose = require('mongoose'); <br>
 > > > mongoose.connect('mongodb://localhost:27017/test');
 
 
