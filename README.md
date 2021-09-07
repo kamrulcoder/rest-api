@@ -111,6 +111,35 @@ var morgan = require('morgan')
 
 ```
 
+> ### contact.js 
+
+```
+const express = require('express')
+const router = express.Router();
+
+const contacts  = [];
+
+router.get('/', (req, res) => {
+    res.status(200).json({
+        contacts
+    })
+})
+
+// post route 
+router.post('/', (req, res) => {
+    contacts.push({
+        name:req.body.name,
+        message:req.body.message
+    })
+   
+    res.status(201).json({
+        messaget:"saved data "
+    })
+})
+
+
+module.exports = router
+```
 
 
 
