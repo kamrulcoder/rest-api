@@ -236,6 +236,32 @@ app.get('/get',(req,res)=>{
 
 ```
 
+<br>
+
+> ###  Fourth    Video Code 
+> > ####  How to use Schema 
+
+<details>
+<summary> The permitted SchemaTypes are:</summary>
+1. String <br>
+2. Number <br>
+3. Date <br>
+4. Buffer <br>
+5. Boolean <br
+6. Mixed <br
+7. ObjectId <br
+8. Array <br
+9. Decimal <br
+10. Map <br
+</details>
+
+
+
+
+
+
+
+
 
 
 
