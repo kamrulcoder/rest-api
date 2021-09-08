@@ -151,6 +151,12 @@ module.exports = router
  Cross-Origin Resource Sharing (CORS) হল একটি HTTP-header ভিত্তিক প্রক্রিয়া যা সার্ভারকে তার নিজের ছাড়া অন্য কোন উৎপত্তি (ডোমেইন, স্কিম বা পোর্ট) নির্দেশ করতে দেয় যেখান থেকে ব্রাউজারকে সম্পদ লোড করার অনুমতি দেওয়া উচিত। CORS এমন একটি পদ্ধতির উপরও নির্ভর করে যার মাধ্যমে ব্রাউজার  Cross-Origin Resource হোস্ট করা সার্ভারের কাছে "preflight" অনুরোধ করে, যাতে সার্ভার প্রকৃত অনুরোধের অনুমতি দেয় কিনা তা পরীক্ষা করে। সেই preflight ব্রাউজারটি হেডার পাঠায় যা HTTP পদ্ধতি নির্দেশ করে এবং শিরোনামগুলি যা প্রকৃত অনুরোধে ব্যবহৃত হবে।
 </details>
 
+<details>
+<summary> what  is Scheema </summary>
+In mongoose একটি schema একটি নির্দিষ্ট নথির কাঠামোর প্রতিনিধিত্ব করে, সম্পূর্ণ বা নথির একটি অংশ। এটি প্রত্যাশিত বৈশিষ্ট্য এবং মান পাশাপাশি সীমাবদ্ধতা এবং সূচক প্রকাশ করার একটি উপায়। একটি মডেল ডাটাবেসের সাথে ইন্টারঅ্যাক্ট করার জন্য একটি প্রোগ্রামিং ইন্টারফেস সংজ্ঞায়িত করে (read, insert, update, etি)
+</details>
+
+
 > ## Install Cors 
 >
 >> npm install cors
@@ -174,6 +180,11 @@ module.exports = router
 
 ### Server.js File Code 
 ```
+const mongoose  = require('mongoose')
+mongoose.connect('mongodb://localhost:27017/contact-db');
+
+const db = mongoose.connection;
+
 db.on('error', (err) => {
 console.log(err);
 })
@@ -181,12 +192,51 @@ console.log(err);
 db.once('open',() =>{
     console.log('Database connection Established')
 })
+
+
+// sechemma create 
+const Schema =  mongoose.Schema;
+const demoScheema  = new Schema({
+    name:{
+        type:String,
+        required:true,
+        minlength:3
+    },
+    phone:{
+        type:String,
+        required:true
+    }
+})
+
+const Demo = mongoose.model('Demo',demoScheema)
+
+
+
+app.get('/demo', (req,res)=>{
+    const demo  = new Demo({
+        name:"kamrul hasan1",
+        phone:"01929394262"
+    })
+    demo.save()
+    .then(data=>{
+        res.json({data})
+    })
+    .catch(err => console.log('error data '))
+});
+
+
+app.get('/get',(req,res)=>{
+    Demo.find()
+    .then(data =>{
+        res.json(data)
+        .catch(error => console.log(error))
+    })
+})
+
+
 ```
 
-<details>
-<summary> what  is Scheema </summary>
-In mongoose একটি schema একটি নির্দিষ্ট নথির কাঠামোর প্রতিনিধিত্ব করে, সম্পূর্ণ বা নথির একটি অংশ। এটি প্রত্যাশিত বৈশিষ্ট্য এবং মান পাশাপাশি সীমাবদ্ধতা এবং সূচক প্রকাশ করার একটি উপায়। একটি মডেল ডাটাবেসের সাথে ইন্টারঅ্যাক্ট করার জন্য একটি প্রোগ্রামিং ইন্টারফেস সংজ্ঞায়িত করে (read, insert, update, etি)
-</details>
+
 
 
 
