@@ -238,23 +238,64 @@ app.get('/get',(req,res)=>{
 
 <br>
 
-> ###  Fourth    Video Code 
-> > ####  How to use Schema 
+> ### Fifth    Video Code 
+> > ####  How to use schema and module  
 
-<details>
-<summary> The permitted SchemaTypes are:</summary>
-1. String <br>
-2. Number <br>
-3. Date <br>
-4. Buffer <br>
-5. Boolean <br
-6. Mixed <br
-7. ObjectId <br
-8. Array <br
-9. Decimal <br
-10. Map <br
-</details>
 
+> #### The permitted SchemaTypes are: 
+1. String 
+2. Number 
+3. Date 
+4. Buffer 
+5. Boolean 
+6. Mixed 
+7. ObjectId 
+8. Array 
+9. Decimal 
+10. Map 
+
+
+### Install Validator 
+> npm install validator
+
+> ###  Module Contact.js
+
+
+
+
+```
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema;
+const validator = require('validator');
+
+const contactSchema = new Schema({
+    name: {
+        type: String,
+        trim: true,
+        required: true,
+        minlength: 3
+    },
+    phone: {
+        type: String,
+        trim: true,
+        required: true,
+        unique: true
+    }, 
+    email: {
+        validator: {
+            validator: v => {
+                return validator.isEmail(v)
+            },
+            message:`${v} is not an email`
+        }
+    }
+})
+
+
+const Contact = new mongoose.model('Contact',contactSchema)
+module.exports = Contact;
+
+```
 
 
 
